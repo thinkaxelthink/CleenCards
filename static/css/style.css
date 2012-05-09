@@ -31,31 +31,32 @@ body {
 }
 #container { }
 #main { }
-ul#cards {
+ul.cards {
 	list-style-type: none;
 }
-ul#cards li {
-	float:left;
-	width:240px;
-	height:280px;
+ul.cards li {
+	/*float:left;*/
+	width:187px;
+	height:262px;
 	padding:10px;
 	margin:5px;
 	overflow:hidden;
+	display: inline-table;
 	border: 1px solid #000;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	border-radius:5px;
 }
-ul#cards li .points {
+ul.cards li .points {
 	float:right;
 	font-size:3em;
 	top:-10px;
 	position:relative;
 }
-ul#cards li p {
-	margin: 20px 0px 0px 0px;
+ul.cards li p {
+	margin: 0px 0px 0px 0px;
 }
-ul#cards li img {
+ul.cards li img {
 	margin: 0 auto;
 	display: block;
 }
