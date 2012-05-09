@@ -1,4 +1,4 @@
-var card = '<ul id="cards">{{#each cards}}<li><h2>{{title}}</h2><img src="{{image}}" width="150" height="150" /><p>{{description}}</p></li>{{/each}}</ul>';
+var card = '<ul id="cards">{{#each cards}}<li><div class="points">{{points}}</div><h2>{{title}}</h2><img src="{{image}}" width="150" height="150" /><p>{{description}}</p></li>{{/each}}</ul>';
 
 require.config({
 	baseUrl: '/static/js',
@@ -25,29 +25,15 @@ function onCSVLoaded(d){
 	var data = {cards:[]};
 	for (var i = dict.length - 1; i >= 0; i--) {
 		
-		if(dict[i].Name !== "" && dict[i].Name !== "Total")
+		if(dict[i].name !== "" && dict[i].name !== "Total")
 		{
-			log(dict[i]);
-			data.cards.push(dict[i]);
+			for (var j = parseInt(dict[i].quantity,10) - 1; j >= 0; j--)
+			{
+				data.cards.push({title: dict[i].name, image: 'static/img/placeholder.png', description: dict[i].description, points: dict[i].point_value});
+				log(dict[i], data.cards[data.cards.length-1]);
+			}
 		}
 	};
 	
-	var datad = { cards: [
-	{title: "Patient Zero", 
-	image: 'static/img/placeholder.png',
-	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
-	{title: "Hooookkh",
-	image: 'static/img/placeholder.png',
-	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
-	{title: "SSSSShooo Cookk",
-	image: 'static/img/placeholder.png',
-	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
-	{title: "In The Trenches",
-	image: 'static/img/placeholder.png',
-	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
-	{title: "POO POO",
-	image: 'static/img/placeholder.png',
-	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}]};
-
-	$('#main').html(template(datad));
+	$('#main').html(template(data));
 };

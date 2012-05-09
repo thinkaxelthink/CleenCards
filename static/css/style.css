@@ -26,6 +26,9 @@
 				Author: Axel Esquite
 				Date: Tues October 18, 2011
 */
+body {
+	font-family: Verdana, Arial, "MS Trebuchet", sans-serif;
+}
 #container { }
 #main { }
 ul#cards {
@@ -33,11 +36,26 @@ ul#cards {
 }
 ul#cards li {
 	float:left;
-	width:250px;
-	padding:5px;
-	margin: 5px;
+	width:240px;
+	height:280px;
+	padding:10px;
+	margin:5px;
+	overflow:hidden;
 	border: 1px solid #000;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+}
+ul#cards li .points {
+	float:right;
+	font-size:3em;
+	top:-10px;
+	position:relative;
+}
+ul#cards li p {
+	margin: 20px 0px 0px 0px;
+}
+ul#cards li img {
+	margin: 0 auto;
+	display: block;
 }
