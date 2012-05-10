@@ -6,3 +6,5 @@ CleenCards runs on [Tornado](http://www.tornadoweb.org/). In order to run it you
 
        cd CleenCards
        python main.py --port=3000
+
+Then point your browser to http://localhost:3000
