@@ -211,7 +211,14 @@
       });
       var lineDict = {};
       for(var j in headers) {
-        lineDict[headers[j]] = line[j];
+        if(line!==null)
+        {
+          lineDict[headers[j]] = line[j];
+        }
+        else
+        {
+          throw "Error occured on a line. Chances are you have quotes in this field or some other troublesome punctuation.";
+        }
       }
       output.push(lineDict);
     }

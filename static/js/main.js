@@ -42,6 +42,7 @@ function onProductionCSVLoaded(d)
 
 function onActionCSVLoaded(d)
 {
+	//log('onActionCSVLoaded', d);
 	var template = Handlebars.compile(action_card);
 	var dict = $.csv2Dictionary(d);
 	var data = {actions:[]};
