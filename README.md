@@ -12,3 +12,5 @@ CleenCards runs on [Tornado](http://www.tornadoweb.org/). In order to run it you
 Then point your browser to 
 
        http://localhost:3000
+
+__Note:__ without a properly formatted set of .csv files this app will error. One day the tool will be made to handle any of csv, but for now, _courage_.
