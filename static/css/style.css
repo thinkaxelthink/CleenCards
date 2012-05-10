@@ -53,10 +53,21 @@ ul.cards li .points {
 	top:-10px;
 	position:relative;
 }
-ul.cards li p {
-	margin: 0px 0px 0px 0px;
+#production_cards p {
+	margin: 10px 0px 0px 0px;
 }
 ul.cards li img {
 	margin: 0 auto;
-	display: block;
+	display:block;
+}
+ul.cards .turns {
+	float:left;
+	margin-top:230px;
+}
+ul.cards .cost {
+	float:right;
+	margin-top:230px;
+	position: relative;
+	right: -25px;
+	text-align: right;
 }
