@@ -1,6 +1,4 @@
-var productionCardTemplate;
-var actionCardTemplate;
-var cardTemplate;
+var productionCardTemplate,actionCardTemplate,cardTemplate;
 require.config({
 	baseUrl: '/static/js',
 	paths: {
@@ -15,7 +13,7 @@ require(['require', 'jquery', 'libs/respond.min', 'plugins', 'libs/handlebars', 
 
 function onDependsLoaded(req,$,modernizer,respond,plugins,csv,SBMediator) {
 		cardTemplate = Handlebars.compile('{{#each actions}}<li><h2>{{title}}</h2><p>{{description}}</p></li>{{/each}}');
-		productionCardTemplate = Handlebars.compile('{{#each production}}<li><div class="points">{{points}}</div><h2>{{title}}</h2>{{#if description}}<p>{{description}}</p>{{/if}}{{#if turns}}<div class="turns">Turns: {{turns}}</div>{{/if}}{{#if sheep_cost}}<div class="cost">Sheep cost: {{sheep_cost}}</div>{{/if}}</li>{{/each}}');
+		productionCardTemplate = Handlebars.compile('{{#each production}}<li><div class="points">{{points}}</div><h2>{{title}}</h2>{{#if image}}<img src="{{image}}" width="150" height="150" />{{/if}}{{#if description}}<p>{{description}}</p>{{/if}}{{#if turns}}<div class="turns">Turns: {{turns}}</div>{{/if}}{{#if sheep_cost}}<div class="cost">Sheep cost: {{sheep_cost}}</div>{{/if}}</li>{{/each}}');
 		actionCardTemplate = Handlebars.compile('{{#each actions}}<li><h2>{{title}}</h2><img src="{{image}}" width="150" height="150" /><p>{{description}}</p></li>{{/each}}');
 		$.get('static/csv/ProductionCards.csv', onProductionCSVLoaded);
 		$.get('static/csv/ActionsCards.csv', onActionCSVLoaded);
